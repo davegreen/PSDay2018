@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Test-Business</id>
+    <version>1.0.0</version>
+    <authors>David Green</authors>
+    <owners>David Green</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A PowerShell script module designed to run test suites for testing and reporting on business applications like Office 365 related services.</description>
+    <releaseNotes># CHANGELOG</releaseNotes>
+    <copyright>(c) 2017. All rights reserved.</copyright>
+    <tags>'Test-Business'  'operational testing' </tags>
+  </metadata>
+</package>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>O365.TestSuite</id>
+    <version>1.7.5</version>
+    <authors>David Green</authors>
+    <owners>David Green</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A PowerShell script module containing an Office 365 test suite for use with the Test-Business module.</description>
+    <releaseNotes># CHANGELOG
+
+## v1.7.5 (02/08/2018)
+
+- Remove on-premises tests from this module into its own module.
+
+## v1.7.0 (12/07/2018)
+
+- Big rework to support the new Get-TestSuiteData approach.
+
+## v1.6.2-3 (10/07/2018)
+
+- Added additional licensing error checking tests.
+- Using new SharePoint calls (*-SharePoint instead of *-SharePointOnline)
+
+## v1.6.0-1 (04/06/2018)
+
+- Added some initial test environment tests, fixups to SharePoint connectivity.
+- Added the ability to leverage multiple datasets.
+- Added commands Get-O365.TestData, Get-O365.TestDataLocation and Set-O365.TestData (To retrieve and change data sets).
+
+## v1.5.2-3 (30/05/2018)
+
+- More auditing test fixes to fix broken tests.
+- Rework auditing tests to reflect real settings.
+
+## v1.5.1 (23/05/2018)
+
+- Add voice access number tests for Outlook Voice Access
+
+## v1.5.0 (22/05/2018)
+
+- Looks like the API that O365ServiceCommunications uses is now finally deprecated. Removed.
+
+## v1.4.0 (22/05/2018)
+
+- Added Exchange On-premises tests!
+- Make local development running of the full suite possible with run.ps1
+- ExchangeOnline tests use a EXO prefix to stop a clash with on-premises commands.
+
+## v1.3.7 (18/05/2018)
+
+- Build fixes
+
+## v1.3.6 (11/05/2018)
+
+- Fix string parsing for Office 365 Platform issue updates
+
+## v1.3.5 (08/05/2018)
+
+- Build changes
+
+## v1.3.4 (08/05/2018)
+
+- Add lots of additional test metadata (tags, because)
+
+## v1.3.3 (08/05/2018)
+
+- Move SharePoint prerequisites to the right place (ConnectServices).
+
+## v1.3.2 (03/05/2018)
+
+- Add Exchange role group tests.
+
+## v1.3.1 (02/05/2018)
+
+- Add AzureAD Application access group tests.
+- Platform test issue update fixes.
+- Exchange connector, hybrid and organization tests.
+
+## v1.3.0 (27/04/2018)
+
+- Fixes to the SharePoint online tests by adding SharePoint client libs.
+- Removal of testing the focalpoint homepage, as it's not reachable from the cloud.
+- Removal of testing internal DNS addresses for the same reason.
+
+## v1.2.0-2 (25/04/2018)
+
+- Build system updates
+- Split this module into it's own place so that updates can take place outside of needing to version Test-Business.
+
+## v1.1 (19/04/2018)
+
+- Add CHANGELOG.md!
+- Support subdirectories in the test suite flow to allow tests to be organised more effectively, but report status as one NUnit XML and HTML report.
+- Restructure tests for Exchange to show this functionality.
+- Split out Connect-* functions to it's own module (ConnectServices).</releaseNotes>
+    <copyright>(c) 2018. All rights reserved.</copyright>
+    <tags>'O365.TestSuite'  'Office 365' </tags>
+  </metadata>
+</package>

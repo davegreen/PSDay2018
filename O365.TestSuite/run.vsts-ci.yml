@@ -1,0 +1,20 @@
+steps:
+- task: PowerShell@1
+  displayName: 'Run O365.TestSuite'
+  inputs:
+    scriptName: 'O365.TestSuite/run.ps1'
+    arguments: '-psakeParameters @{ InstallPrerequisites = $true; prereqCredential = $(prereqcred) } -testCredential $(testcred) -SPOCredential $(spocred) -uploadURL $(uploadURL)'
+
+- task: PublishTestResults@2
+  displayName: 'Publish O365 Test Results'
+  inputs:
+    testRunner: NUnit
+    testResultsFiles: '**\*.xml'
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - O365.TestSuite/src/*

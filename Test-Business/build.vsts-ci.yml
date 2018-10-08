@@ -1,0 +1,29 @@
+steps:
+- task: PowerShell@1
+  displayName: 'Build Test-Business'
+  inputs:
+    scriptName: 'Test-Business/build.ps1'
+    arguments: '-psakeParameters @{ InstallPrerequisites = $true; }'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet pack'
+  inputs:
+    command: pack
+    packagesToPack: 'Test-Business\Release\Test-Business'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    searchPatternPush: "$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg"
+    nuGetFeedType: internal
+    publishVstsFeed: PowerShellModules
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Test-Business/build.settings.ps1
+    - Test-Business/Manifest.Data.psd1

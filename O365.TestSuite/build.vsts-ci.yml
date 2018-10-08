@@ -1,0 +1,29 @@
+steps:
+- task: PowerShell@1
+  displayName: 'Build O365.TestSuite'
+  inputs:
+    scriptName: 'O365.TestSuite/build.ps1'
+    arguments: '-psakeParameters @{ InstallPrerequisites = $true; prereqCredential = $(prereqcred) }'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet pack'
+  inputs:
+    command: pack
+    packagesToPack: 'O365.TestSuite\Release\O365.TestSuite'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    searchPatternPush: "$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg"
+    nuGetFeedType: internal
+    publishVstsFeed: PowerShellModules
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - O365.TestSuite/build.settings.ps1
+    - O365.TestSuite/Manifest.Data.psd1
