@@ -48,7 +48,7 @@ function Get-TestSuiteData {
 
                 Get-ChildItem -Path $HelperEnv.FullName -Recurse -Filter '*.ps1' | ForEach-Object {
                     $Name = $_.BaseName
-                    $Data = Get-ChildItem -Path $DataEnv.FullName -Recurse -Filter "$Name*" | ForEach-Object {
+                    $Data = Get-ChildItem -Path $DataEnv.FullName -Recurse | Where-Object -Property FullName -like "*$Name*" | ForEach-Object {
                         if (-not $_.PSIsContainer) {
                             Import-PowerShellDataFile -Path $_.FullName
                         }

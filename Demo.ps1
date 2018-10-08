@@ -18,3 +18,6 @@ Invoke-TestSuite -TestSuite BasicExample2.TestSuite -Environment test -TestResul
 
 # Report
 Invoke-TestSuite -TestSuite BasicExample2.TestSuite -OutputHTML -OpenHTML
+
+# O365
+Invoke-TestSuite -TestSuite O365.TestSuite -OutputHTML
