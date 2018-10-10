@@ -26,7 +26,6 @@ Param (
 if ($testCredential -and $testCredential.Length -eq 2) {
     $testPass = ConvertTo-SecureString $testCredential[1] -AsPlainText -Force
     $testCred = New-Object System.Management.Automation.PSCredential ($testCredential[0], $testPass)
-    Add-Setting -Key '365Admin' -Value $testCred -Path $env:TEMP\Setting.clixml -Verbose -ErrorAction SilentlyContinue
 }
 
 if ($SPOCredential -and $SPOCredential.Length -eq 2) {
@@ -56,10 +55,6 @@ if (Get-Module -Name 'O365.TestSuite' -ListAvailable) {
     if ($uploadURL -and $SPOCred) {
         Connect-PnPOnline -Url $uploadURL -Credentials $SPOCred -Verbose
         Add-PnPFile -Path (Get-Item -Path $PSScriptRoot\Release\*.zip | Select-Object -First 1).FullName -Folder 'Shared Documents/General/Test-Example' -Verbose
-    }
-
-    if (Get-Setting -Key '365Admin' -Path $env:TEMP\Setting.clixml) {
-        Remove-Setting -Key '365Admin' -Path $env:TEMP\Setting.clixml -Verbose
     }
 }
 else {
