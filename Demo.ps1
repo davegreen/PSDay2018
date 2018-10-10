@@ -7,6 +7,8 @@
 # Show
 Get-TestSuite
 
+Get-TestSuite -Path .\BasicExample.TestSuite\src\BasicExample.TestSuite.psd1
+
 # 1
 Get-TestSuiteData -TestSuite BasicExample.TestSuite
 
