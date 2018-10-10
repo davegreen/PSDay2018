@@ -14,6 +14,7 @@ Invoke-TestSuite -TestSuite BasicExample.TestSuite -TestResultShow All
 
 # 2
 Get-TestSuiteData -TestSuite BasicExample2.TestSuite
+
 Invoke-TestSuite -TestSuite BasicExample2.TestSuite -Environment prod -TestResultShow All
 
 Invoke-TestSuite -TestSuite BasicExample2.TestSuite -Environment test -TestResultShow All
