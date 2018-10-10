@@ -9,6 +9,9 @@ Get-TestSuite
 
 Get-TestSuite -Path .\BasicExample.TestSuite\src\BasicExample.TestSuite.psd1
 
+Import-Module BasicExample.TestSuite
+Get-Module BasicExample.TestSuite | Format-List
+
 # 1
 Get-TestSuiteData -TestSuite BasicExample.TestSuite
 
